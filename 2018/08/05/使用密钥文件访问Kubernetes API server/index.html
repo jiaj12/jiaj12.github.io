@@ -12,6 +12,8 @@
     
     <title>
         
+            CentOS7  科学使用kubeadm安装 kubernetes1.11 | 
+        
         jiajie313的博客
     </title>
 
@@ -63,7 +65,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://jiajie313.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="jiajie313的博客">
+    <meta property="og:title" content="CentOS7  科学使用kubeadm安装 kubernetes1.11 | jiajie313的博客">
     <meta property="og:image" content="/img/favicon.png" />
     <meta property="og:description" content="一个个人博客">
     
@@ -74,7 +76,7 @@
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="jiajie313的博客">
+    <meta name="twitter:title" content="CentOS7  科学使用kubeadm安装 kubernetes1.11 | jiajie313的博客">
     <meta name="twitter:description" content="一个个人博客">
     <meta name="twitter:image" content="/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -108,7 +110,7 @@
         },
         "description": "Hi, nice to meet you"
     },
-    "headline": "",
+    "headline": "CentOS7  科学使用kubeadm安装 kubernetes1.11",
     "url": "http://jiajie313.com/2018/08/05/使用密钥文件访问Kubernetes API server/index.html",
     "datePublished": "Aug 05, 2018",
     "dateModified": "Aug 05, 2018",
@@ -333,7 +335,7 @@
 
     
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用密钥文件访问Kubernetes-API-server"><span class="post-toc-number">1.</span> <span class="post-toc-text">使用密钥文件访问Kubernetes API server</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#使用密钥文件访问Kubernetes-API-server"><span class="post-toc-number">1.</span> <span class="post-toc-text">使用密钥文件访问Kubernetes API server</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置-TLS-连接"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">配置 TLS 连接</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#访问成功！"><span class="post-toc-number">2.</span> <span class="post-toc-text">访问成功！</span></a></li></ol>
         <!--
         <li class="mdl-menu__item">
             Some Action
@@ -371,7 +373,7 @@
         
     
             <p class="article-headline-p">
-                
+                CentOS7  科学使用kubeadm安装 kubernetes1.11
             </p>
         </div>
 
@@ -430,7 +432,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=&url=http://jiajie313.com/2018/08/05/使用密钥文件访问Kubernetes API server/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=CentOS7  科学使用kubeadm安装 kubernetes1.11&url=http://jiajie313.com/2018/08/05/使用密钥文件访问Kubernetes API server/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 Share to Weibo
             </li>
@@ -439,7 +441,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=&url=http://jiajie313.com/2018/08/05/使用密钥文件访问Kubernetes API server/index.html&via=Jia Jie" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=CentOS7  科学使用kubeadm安装 kubernetes1.11&url=http://jiajie313.com/2018/08/05/使用密钥文件访问Kubernetes API server/index.html&via=Jia Jie" target="_blank">
             <li class="mdl-menu__item">
                 Share to Twitter
             </li>
@@ -481,10 +483,9 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h2 id="使用密钥文件访问Kubernetes-API-server"><a href="#使用密钥文件访问Kubernetes-API-server" class="headerlink" title="使用密钥文件访问Kubernetes API server"></a>使用密钥文件访问Kubernetes API server</h2><p>kubectl 通过访问 Kubernetes API 来执行命令。我们也可以通过对应的TLS key， 使用curl 或是 golang client做同样的事。</p>
+        <h1 id="使用密钥文件访问Kubernetes-API-server"><a href="#使用密钥文件访问Kubernetes-API-server" class="headerlink" title="使用密钥文件访问Kubernetes API server"></a>使用密钥文件访问Kubernetes API server</h1><p>kubectl 通过访问 Kubernetes API 来执行命令。我们也可以通过对应的TLS key， 使用curl 或是 golang client做同样的事。</p>
 <p>API 请求必须使用 JSON 格式来发送。 kubectl  的作用是将 .yaml 转换为 JSON 格式进行 API 请求。</p>
-<p>配置 TLS 连接</p>
-<ol>
+<h2 id="配置-TLS-连接"><a href="#配置-TLS-连接" class="headerlink" title="配置 TLS 连接"></a>配置 TLS 连接</h2><ol>
 <li><p>我们从查看 kubectl 的配置文件开始，需要：三个证书和 API server 的地址</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.kube/config</span><br></pre></td></tr></table></figure>
 </li>
@@ -507,8 +508,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">curl --cert ./client.pem \</span><br><span class="line">--key ./client-key.pem \</span><br><span class="line">--cacert ./ca.pem \</span><br><span class="line">https://10.128.0.3:6443/api/v1/pods</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    "kind": "PodList",</span><br><span class="line">    "apiVersion": "v1",</span><br><span class="line">    "metadata": &#123;</span><br><span class="line">        "selfLink": "/api/v1/pods",</span><br><span class="line">        "resourceVersion": "239414"</span><br><span class="line">    &#125;,</span><br><span class="line">    &lt;output_omitted&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>访问成功！</p>
-
+<h1 id="访问成功！"><a href="#访问成功！" class="headerlink" title="访问成功！"></a>访问成功！</h1>
     
 
     
