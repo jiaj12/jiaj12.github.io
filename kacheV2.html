@@ -161,7 +161,7 @@
 									var diffb = avga-b;
 									var diffc = avga-c;
 									var diffd = avga-d;
-									var diffe = avga-d;
+									var diffe = avga-e;
 									var variace = diffa*diffa + diffb*diffb + diffc*diffc + diffd*diffd + diffe*diffe
 									mycars[5]=variace;
 				    				resultArray.push(mycars);
@@ -175,11 +175,11 @@
 				    					var sumd = Number(best[3])*Number(xc);
 				    					var sume = Number(best[4])*Number(xd);
 
-				    					$("#excavatorRes").html("挖掘机："+best[0]+"个，共计"+suma+"元；");
-				    					$("#bulldozerRes").html("推土机："+best[1]+"个，共计"+sumb+"元；");
-				    					$("#truckRes").html("运输车："+best[2]+"个，共计"+sumc+"元；");
-				    					$("#sprinklerRes").html("洒水车："+best[3]+"个，共计"+sumc+"元；");
-				    					$("#hydra-zhammerRes").html("液压锤："+best[4]+"个，共计"+sumd+"元；");
+				    					$("#excavatorRes").html("挖掘机："+best[0]+"个，单价："+x+"元，合计"+suma+"元；");
+				    					$("#bulldozerRes").html("推土机："+best[1]+"个，单价："+xa+"元，合计"+sumb+"元；");
+				    					$("#truckRes").html("运输车："+best[2]+"个，单价："+xb+"元，合计"+sumc+"元；");
+				    					$("#sprinklerRes").html("洒水车："+best[3]+"个，单价："+xc+"元，合计"+sumd+"元；");
+				    					$("#hydra-zhammerRes").html("液压锤："+best[4]+"个，单价："+xd+"元，合计"+sume+"元；");
 				    					$("#totalRes").html("总计:"+f+"元");
 				    				}
 				    			}
