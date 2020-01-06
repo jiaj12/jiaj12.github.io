@@ -1,0 +1,316 @@
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+
+</head>
+
+<body>
+	
+
+</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Material Design for Bootstrap fonts and icons -->
+    <link rel="stylesheet" href="css/gapi.css">
+
+    <!-- Material Design for Bootstrap CSS integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous"-->
+    <link rel="stylesheet" href="css/bootstrap-material-design.min.css" >
+
+    <title>工程车数量计算</title>
+  </head>
+  <body>
+  	<div class="progress" style="height: 20px;">
+  <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+  	<div class="container-fluid">
+  <!-- Content here -->
+  <div  hidden="true">
+  <h1>车辆计算器</h1>
+    <a href="">挖掘机</a><input type="text" id="x" value="3500" name="挖掘机"><br/>
+	<a href="">推土机</a><input type="text" id="xa" value="4300"><br/>
+	<a href="">运输车</a><input type="text" id="xb" value="3200"><br/>
+	<a href="">洒水车</a><input type="text" id="xc" value="1800"><br/>
+	<a href="">液压锤</a><input type="text" id="xd" value="4800"><br/>
+	<a href="">总预算</a><input type="text" id="f" value=""><br/>
+	<button name="计算" id="submit" onclick="calc()" type="button" class="btn btn-outline-primary">开始计算</button>
+		<div class="alert alert-success" role="alert" id="submitted" hidden="true">
+	 		 This is a success alert—check it out!
+		</div></div>
+	<div class="container-fluid">
+<div class="row"><br></div>
+	  <div class="card" style="width: 60rem;">
+		  <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+
+		  <div class="card-body">
+		    <h5 class="card-title">工程车数量计算</h5>
+		    <p class="card-text">
+		    	<form name="details">
+		    	<div class="row">
+    
+      
+ 
+		    	
+		   <div class="col-sm">
+	  <div class="form-group">
+	    <label for="excavator">挖掘机</label>
+	    <input type="text" class="form-control" id="excavator" aria-describedby="emailHelp" placeholder="" value="3500">
+	     <small id="emailHelp" class="form-text text-muted">请输入整数，默认为3500</small> 
+	  </div></div>
+	   <div class="col-sm">
+	  <div class="form-group">
+	    <label for="bulldozer">推土机</label>
+	    <input type="text" class="form-control" id="bulldozer" aria-describedby="emailHelp" placeholder="请输入整数，默认为4300" value="4300">
+	    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+	  </div> </div>
+	  <div class="col-sm">
+	  <div class="form-group">
+	    <label for="truck">运输车</label>
+	    <input type="text" class="form-control" id="truck" aria-describedby="emailHelp" placeholder="请输入整数，默认为3200" value="3200">
+	    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+	  </div> </div>
+	  </div>
+	  <div class="row">
+	  <div class="col-sm">
+	  <div class="form-group">
+	    <label for="sprinkler">洒水车</label>
+	    <input type="text" class="form-control" id="sprinkler" aria-describedby="emailHelp" placeholder="请输入整数，默认为1800" value="1800">
+	    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+	  </div></div>
+	   <div class="col-sm">
+	  <div class="form-group">
+	    <label for="hydra-zhammer">液压锤</label>
+	    <input type="text" class="form-control" id="hydra-zhammer" aria-describedby="emailHelp" placeholder="请输入整数，默认为4800" value="4800">
+	    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+	  </div></div>
+	   <div class="col-sm">
+	   	<div class="form-group">
+	    <label for="total">总预算</label>
+	    <input type="text" class="form-control" id="total" aria-describedby="emailHelp" placeholder="请输入整数，单位元" >
+	    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+	  </div></div>
+	  </div>
+	  
+	  </form>
+
+	  		<!-- Button trigger modaldata-target="#exampleModalCenter" -->
+			<button type="button" class="btn btn-primary large" data-toggle="modal"  id="calc">
+			  开始计算
+			</button>
+			<!-- <button id="calc1">calc1</button> -->
+			
+
+			<!-- Modal -->
+			<div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" >
+			  <div class="modal-dialog modal-dialog-centered " role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="exampleModalLongTitle">结果</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body" >
+			      	<p id="excavatorRes"></p><br>
+			      	<p id="bulldozerRes"></p><br>
+			      	<p id="truckRes"></p><br>
+			      	<p id="sprinklerRes"></p><br>
+			      	<p id="hydra-zhammerRes"></p><br>
+			      	<p id="totalRes"></p>
+<!-- 
+			      	var x = document.forms["details"]["excavator"].value;
+				var xa = document.forms["details"]["bulldozer"].value;
+				var xb = document.forms["details"]["truck"].value;
+				var xc = document.forms["details"]["sprinkler"].value;
+				var xd = document.forms["details"]["hydra-zhammer"].value;
+
+			        一 modal内容内容内容内容内容内容内容内容内容内容内容内容内容
+			        一 modal内容内容内容内容内容内容内容内容内容内容内容内容内容
+			        一 modal内容内容内容内容内容内容内容内容内容内容内容内容内容
+			        一 modal内容内容内容内容内容内容内容内容内容内容内容内容内容
+			        一 modal内容内容内容内容内容内容内容内容内容内容内容内容内容
+			        一 modal内容内容内容内容内容内容内容内容内容内容内容内容内容 -->
+			        
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+			      </div>
+			    </div>
+			  </div>
+			</div>
+		   <!--  Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+		    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+		  </div>
+		</div>
+
+</div>
+	  <!-- 
+	  <div class="form-group">
+	    <label for="exampleInputPassword1">Password</label>
+	    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+	  </div>
+	  <div class="form-check">
+	    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+	    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+	  </div> -->
+	  <!-- <button type="submit" class="btn btn-primary" id="calculate">计算</button>
+	
+
+	<textarea id="result"></textarea>
+
+	<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown button
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div> -->
+
+
+</div>
+    
+    <!-- Optional JavaScript -->
+    <script src="js/jquery.min.js" ></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+    <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script>
+    	//debugger;
+    	//var calculate = document.getElementById("calculate");
+    	/*$("#calculate")*/
+    	$("#calculate").click(function(){
+    		alert("ere");
+    		calc();
+  			$("submitted").show();
+		});
+		$("#calc").click(function(){
+    		//alert("ere");
+
+			if ($("#total").val()==""){
+			        $("#total").select();
+			        //alert("请认真填写用户名，提交后不可修改！");
+			        return ;
+			    };
+			//checkInput();
+			$('#exampleModalCenter').modal('show');
+    		calc();
+  			$("submitted").show();
+		});
+		$("#calc1").click(function(){
+    		calc1();
+		});
+
+		function checkInput(){
+				 if ($("#total").val()==""){
+        $("#total").select();
+        //alert("请认真填写用户名，提交后不可修改！");
+        return ;
+    }
+		};
+		
+    		
+    		function calc1(){
+    			var x = document.forms["details"]["excavator"].value;
+				var xa = document.forms["details"]["bulldozer"].value;
+				var xb = document.forms["details"]["truck"].value;
+				var xc = document.forms["details"]["sprinkler"].value;
+				var xd = document.forms["details"]["hydra-zhammer"].value;
+				var f = 100000;
+				//var f = document.getElementById("f").value;
+
+				var avgPrice = (Number(x)+Number(xa)+Number(xb)+Number(xc)+Number(xd))/5;
+				var floor = Math.floor(f/Number(avgPrice)/5);
+
+				alert("avgPrice："+avgPrice+"floor："+floor);
+
+    		}
+			function calc(){
+				//alert("开始计算");
+			/*var x123 = document.forms["details"]["excavator"].value;
+			alert(x123);*/
+			var x = document.forms["details"]["excavator"].value;
+			var xa = document.forms["details"]["bulldozer"].value;
+			var xb = document.forms["details"]["truck"].value;
+			var xc = document.forms["details"]["sprinkler"].value;
+			var xd = document.forms["details"]["hydra-zhammer"].value;
+			//alert("结果"+x);
+			var f = document.getElementById("total").value;
+			//alert(f);
+			//var pre ;
+			var now =10000;
+			var best =[];
+
+			var resultArray = [];
+
+			for (var a=1;a<(Math.floor(f/Number(x)/3));a++){ 
+			    for (var b=1;b<(Math.floor(f/Number(xa)/3));b++){
+			    	for (var c=1;c<(Math.floor(f/Number(xb)/3));c++){
+			    		for (var d=1;d<(Math.floor(f/Number(xc)/3));d++){
+			    			for (var e=1;e<(Math.floor(f/Number(xd)/3));e++){
+			    				if(a*x+b*xa+c*xb+d*xc+e*xd==f){
+									var mycars =[];
+									mycars[0]=a;
+									mycars[1]=b;
+									mycars[2]=c;
+									mycars[3]=d;
+									mycars[4]=e;
+									var avga = (a+b+c+d+e)/5;
+									var diffa = avga-a;
+									var diffb = avga-b;
+									var diffc = avga-c;
+									var diffd = avga-d;
+									var diffe = avga-d;
+									var variace = diffa*diffa + diffb*diffb + diffc*diffc + diffd*diffd + diffe*diffe
+									mycars[5]=variace;
+				    				resultArray.push(mycars);
+				    				if(variace <now){
+				    					now= variace;
+				    					best = mycars;
+				    					//result.value=mycars;
+				    					var suma = Number(best[0])*Number(x);
+				    					var sumb = Number(best[1])*Number(xa);
+				    					var sumc = Number(best[2])*Number(xb);
+				    					var sumd = Number(best[3])*Number(xc);
+				    					var sume = Number(best[4])*Number(xd);
+
+				    					$("#excavatorRes").html("挖掘机："+best[0]+"个，共计"+suma+"元；");
+				    					//$("#excavatorNum").html();
+				    					$("#bulldozerRes").html("推土机："+best[1]+"个，共计"+sumb+"元；");
+				    					//$("#bulldozerNum").html();
+				    					$("#truckRes").html("运输车："+best[2]+"个，共计"+sumc+"元；");
+				    					//$("#truckNum").html();
+				    					$("#sprinklerRes").html("洒水车："+best[3]+"个，共计"+sumc+"元；");
+				    					//$("#sprinklerNum").html();
+				    					$("#hydra-zhammerRes").html("液压锤："+best[4]+"个，共计"+sumd+"元；");
+				    					//$("#hydra-zhammerNum").html();
+				    					$("#totalRes").html("总计:"+f+"元");
+										//$("#fullresult").html("挖掘机："+best[0]+"个；推土机"+best[1]+"个；运输车"+best[2]+"个；洒水车"+best[3]+"个；液压锤"+best[4]+"个；");
+				    					
+				    				}
+				    				/*alert(resultArray);*/
+				    			}
+			    			}
+			    		}
+			    	}
+			    }
+			//result.innerHTML(result);
+			}
+			/*alert(now);
+			alert(best);*/
+				//alert("总预算："+f+"时，最优方差为"+now+"，最优解为："+"挖掘机："+best[0]+"个；推土机"+best[1]+"个；运输车"+best[2]+"个；洒水车"+best[3]+"个；液压锤"+best[4]+"个；");
+
+				//fullresult.value('天气不错');
+			}
+
+</script>
+    
+  </body>
+</html>
